@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>KAIST Placeness API</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+      color: #818181;
+  }
+  h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+      margin-bottom: 30px;
+  }
+  h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      color: #303030;
+      font-weight: 400;
+      margin-bottom: 30px;
+  }
+  .jumbotron {
+      background-color: #0174DF;
+      color: #fff;
+      padding: 100px 25px;
+      font-family: Montserrat, sans-serif;
+  }
+  .container-fluid {
+      height: 100%;
+      padding: 60px 50px;
+  }
+  .bg-grey {
+      background-color: #f6f6f6;
+  }
+  .logo-small {
+      color: #0174DF;
+      font-size: 50px;
+  }
+  .logo {
+      color: #0174DF;
+      font-size: 200px;
+  }
+  .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+  }
+  .navbar {
+      margin-bottom: 0;
+      background-color: #0174DF;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: #0174DF !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
+  .col {
+    height: 100%
+  }
+  .body {
+    height: 100%
+  }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../">Home</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="../#placeness">PLACENESS</a></li>
+          <li><a href="../#api">API</a></li>
+          <li><a href="../#example">SAMPLE APP</a></li>
+          <li><a href="../#contact">CONTACT</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <h2>Extract Data from Instagram Post</h2>
+    <p>
+      Post URL: {{ sns_url }}
+    </p>
+    <p>
+      Feature extraction result:<br />
+
+    </p>
+    <div class="row">
+      <div class="col-sm-6" style="background-color: #e3e3e3; height:500px; margin-top: 0px; overflow:scroll;">
+        <img src="{{imgfile}}" width="780" />
+      </div>
+      <div class="col-sm-1" style="text-align: center; margin-top: 15%;">
+        <span class="glyphicon glyphicon-arrow-right" style="font-size: 50px;"></span>
+      </div>
+      <div class="col-sm-5" style="padding-left: 30px; border:2px solid #e3e3e3;">
+        <div class="row" style="font-size: 24px;">
+          Placeness Extraction Data
+        </div>
+        <div>
+          {{feature_ext_result}}
+        </div>
+        <div class="row">
+          <b>Location: </b>
+        </div>
+        <div class="row">
+          <div class="col-sm-3"><b>Season</b></div>
+          <div class="col-sm-9">{{proc_data.season}}</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3"><b>Mood</b></div>
+          <div class="col-sm-9">{{proc_data.mood}}</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3"><b>Activity</b></div>
+          <div class="col-sm-9">{{proc_data.activity}}</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3"><b>isWeekend</b></div>
+          <div class="col-sm-9">{{proc_data.weekend}}</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3"><b>Maen</b></div>
+          <div class="col-sm-9">{{proc_data.maen}}</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3"><b>User</b></div>
+          <div class="col-sm-9"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

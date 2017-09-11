@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Complex icons</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+      // The following example creates complex markers to indicate locations.
+      var map;
+      function initMap() {
+        var center_lat = {{center_lat}};
+        var center_lon = {{center_lon}};
+
+        // get center GPS from Flask (Python)
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+//          center: {lat: 37.550116, lng: 126.989593}
+            center: {lat: center_lat, lng: center_lon}
+        });
+
+		// set map options
+		map.setOptions({styles: styles['hide']});
+
+        setMarkers(map);
+      }
+
+      var styles = {
+		hide: [
+		  {
+			"featureType": "administrative.land_parcel",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"featureType": "administrative.neighborhood",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"featureType": "poi",
+			"elementType": "labels.text",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"featureType": "poi.business",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"featureType": "road",
+			"elementType": "labels",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"featureType": "road",
+			"elementType": "labels.icon",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"featureType": "road.arterial",
+			"elementType": "labels",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"featureType": "road.highway",
+			"elementType": "labels",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"featureType": "road.local",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"featureType": "transit",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"featureType": "water",
+			"elementType": "labels.text",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  }
+		],
+        gray: [
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#f5f5f5"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#616161"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#f5f5f5"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#bdbdbd"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.neighborhood",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#eeeeee"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.business",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e5e5e5"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#ffffff"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dadada"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#616161"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e5e5e5"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.station",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#eeeeee"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#c9c9c9"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  }
+]
+      };
+
+
+
+      // Data for the markers consisting of a name, a LatLng and a zIndex for the
+      // order in which these markers should display on top of each other.
+//      var spots = [
+      //['Yongsan Station', 37.53, 126.96472222222, 4],
+      //['코엑스 메가박스', 37.513471542882, 127.05892224965, 6],
+      //['CGV 용산', 37.52959686846, 126.96478735774, 11],
+      //['COEX Convention & Exhibition Center 코엑스, 한국종합무역센터 Seoul, South Korea', 37.510978493947, 127.05862172126, 1],
+      //['봉은사 - Bongeunsa Temple', 37.513634027029, 127.05852648588, 1],
+      //['Mapo, Seoul, Korea', 37.5443263363, 126.95129113, 4],
+      //['InterContinental Seoul COEX', 37.512785165888, 127.05741995868, 2],
+      //['IPark Mall', 37.529453682048, 126.96494519639, 2],
+      //['용산 아이파크몰', 37.52950949283, 126.96478950559, 3]
+      //      ];
+
+      // Get spots data from Flask (Python)
+      var spots = {{locations|safe}};
+
+      function setMarkers(map) {
+        // Adds markers to the map.
+
+        // Marker sizes are expressed as a Size of X,Y where the origin of the image
+        // (0,0) is located in the top left of the image.
+        var markerFiles = [
+          "static/d1.png",
+          "static/c2.png",
+          "static/c5.png",
+          "static/e3.png",
+          "static/e4.png",
+          "static/c4.png",
+          "static/e2.png",
+          "static/d2.png" // Last one defined as 'none'
+        ];
+        var defaultCircleSize = 18;
+
+        // Origins, anchor positions and coordinates of the marker increase in the X
+        // direction to the right and in the Y direction down.
+        var image;
+
+        // Shapes define the clickable region of the icon. The type defines an HTML
+        // <area> element 'poly' which traces out a polygon as a series of X,Y points.
+        // The final coordinate closes the poly by connecting to the first coordinate.
+        var shape = {
+          coords: [1, 1, 1, 20, 18, 20, 18, 1],
+          type: 'poly'
+        };
+        for (var i = 0; i < spots.length; i++) {
+          var aMarker = spots[i];
+          var circleSize = defaultCircleSize;
+          if(aMarker[4] <= 100){
+            circleSize = defaultCircleSize;
+          } else if(aMarker[4] <= 500){
+            circleSize = defaultCircleSize*2;
+          } else if(aMarker[4] <= 1000){
+            circleSize = defaultCircleSize*3;
+          } else {
+            circleSize = 64;
+          }
+
+          image = {
+            url: markerFiles[aMarker[3]],
+            // This marker is 20 pixels wide by 32 pixels high.
+            scaledSize: new google.maps.Size(circleSize, circleSize),
+            // The origin for this image is (0, 0).
+            origin: new google.maps.Point(0, 0),
+            // The anchor for this image is the base of the flagpole at (0, 32).
+            anchor: new google.maps.Point(0, circleSize)
+          };
+
+          var marker = new google.maps.Marker({
+            position: {lat: aMarker[1], lng: aMarker[2]},
+            map: map,
+            icon: image,
+            shape: shape,
+            title: aMarker[0],
+            zIndex: aMarker[3]
+          });
+          marker.setOpacity(0.9);
+//          if(aMarker[3] >= 1 && aMarker[3] < 4){
+//            marker.setOpacity(0.9); // 0.6
+//          }
+ //         if(aMarker[3] >= 4 && aMarker[3] < 10){
+//            marker.setOpacity(0.9); // 0.8
+//          }
+//          if(aMarker[3] >= 10){
+//            marker.setOpacity(0.9); // 1.0
+//          }
+        }
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNvlq-o2aTeazwZS-YWcAywEIRI1j3lUc&callback=initMap">
+    </script>
+  </body>
+</html>
