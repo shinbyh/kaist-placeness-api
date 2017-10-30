@@ -33,12 +33,6 @@ class relevance:
         self.venues=list((n for n in self.graph.nodes() if self.graph.node[n]['bipartite']=='venue'))
         self.users=list((n for n in self.graph.nodes() if self.graph.node[n]['bipartite']=='user'))
         self.placeness=list((n for n in self.graph.nodes() if self.graph.node[n]['bipartite']=='pl'))
-        print("The basic properties of the network:")
-        print('The number of venues: ', len(self.venues))
-        print('The number of users: ', len(self.users))
-        print('The number of placeness: ', len(self.placeness))
-        print('The number of edges:', self.graph.number_of_edges())
-        
         return
         
     def load_placeness_keywords(self):

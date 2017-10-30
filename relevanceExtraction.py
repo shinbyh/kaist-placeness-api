@@ -138,7 +138,7 @@ class RelevanceExtraction(Resource):
                     merged_result[venue_metadata[res[0]]['name']]=res[1]*num_nodes*num_query_nodes
             running_times.append(np.sum(dummy_times))
 
-            response = {'venues':OrderedDict(sorted(merged_result.items(), key=operator.itemgetter(1), reverse=True))}
+            response = {'venues':OrderedDict(sorted(merged_result.items(), key=operator.itemgetter(1), reverse=True)[:topk])}
             print("Results:")
             print(response)
             return response
