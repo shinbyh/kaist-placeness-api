@@ -1,0 +1,64 @@
+<gexf version="1.1" xmlns="http://www.gexf.net/1.1draft" xmlns:viz="http://www.gexf.net/1.1draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance">
+  <graph defaultedgetype="undirected" mode="static">
+    <attributes class="node" mode="static">
+      <attribute id="0" title="bipartite" type="string" />
+    </attributes>
+    <nodes>
+      <node id="Mood_세련된/Season_summer/maen_evening/Occasion_데이트/isWeekend_weekday/With_with유아" label="Mood_세련된/Season_summer/maen_evening/Occasion_데이트/isWeekend_weekday/With_with유아">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_세련된/Season_summer/maen_evening/Occasion_데이트/isWeekend_weekday/With_with연인" label="Mood_세련된/Season_summer/maen_evening/Occasion_데이트/isWeekend_weekday/With_with연인">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_세련된/Season_summer/maen_evening/Occasion_문화생활/isWeekend_weekday/With_with유아" label="Mood_세련된/Season_summer/maen_evening/Occasion_문화생활/isWeekend_weekday/With_with유아">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_세련된/Season_summer/maen_evening/Occasion_휴식/isWeekend_weekday/With_with연인" label="Mood_세련된/Season_summer/maen_evening/Occasion_휴식/isWeekend_weekday/With_with연인">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_세련된/Season_summer/maen_evening/Occasion_영화/isWeekend_weekday/With_with혼자" label="Mood_세련된/Season_summer/maen_evening/Occasion_영화/isWeekend_weekday/With_with혼자">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_세련된/Season_summer/maen_evening/Occasion_휴식/isWeekend_weekday/With_with혼자" label="Mood_세련된/Season_summer/maen_evening/Occasion_휴식/isWeekend_weekday/With_with혼자">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="241437171" label="241437171">
+        <attvalues>
+          <attvalue for="0" value="venue" />
+        </attvalues>
+      </node>
+      <node id="Mood_세련된/Season_summer/maen_evening/Occasion_문화생활/isWeekend_weekday/With_with연인" label="Mood_세련된/Season_summer/maen_evening/Occasion_문화생활/isWeekend_weekday/With_with연인">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_세련된/Season_summer/maen_evening/Occasion_휴식/isWeekend_weekday/With_with유아" label="Mood_세련된/Season_summer/maen_evening/Occasion_휴식/isWeekend_weekday/With_with유아">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="3645" source="Mood_세련된/Season_summer/maen_evening/Occasion_휴식/isWeekend_weekday/With_with유아" target="241437171" weight="0.32876885572" />
+      <edge id="3641" source="Mood_세련된/Season_summer/maen_evening/Occasion_데이트/isWeekend_weekday/With_with유아" target="241437171" weight="0.365327442319" />
+      <edge id="3100" source="Mood_세련된/Season_summer/maen_evening/Occasion_데이트/isWeekend_weekday/With_with연인" target="241437171" weight="0.282710483668" />
+      <edge id="3643" source="Mood_세련된/Season_summer/maen_evening/Occasion_문화생활/isWeekend_weekday/With_with유아" target="241437171" weight="0.365327442319" />
+      <edge id="3642" source="Mood_세련된/Season_summer/maen_evening/Occasion_휴식/isWeekend_weekday/With_with연인" target="241437171" weight="0.427824758906" />
+      <edge id="3640" source="Mood_세련된/Season_summer/maen_evening/Occasion_휴식/isWeekend_weekday/With_with혼자" target="241437171" weight="0.266271539133" />
+      <edge id="3644" source="241437171" target="Mood_세련된/Season_summer/maen_evening/Occasion_문화생활/isWeekend_weekday/With_with연인" weight="0.32876885572" />
+      <edge id="3639" source="241437171" target="Mood_세련된/Season_summer/maen_evening/Occasion_영화/isWeekend_weekday/With_with혼자" weight="0.427824758906" />
+    </edges>
+  </graph>
+</gexf>

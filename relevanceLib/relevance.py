@@ -11,8 +11,7 @@ import operator
 import time
 import imp
 
-# imp.reload(sys)
-# sys.setdefaultencoding('utf8')
+imp.reload(sys)
 
 class relevance:
     def __init__(self):        
@@ -34,10 +33,11 @@ class relevance:
         self.venues=list((n for n in self.graph.nodes() if self.graph.node[n]['bipartite']=='venue'))
         self.users=list((n for n in self.graph.nodes() if self.graph.node[n]['bipartite']=='user'))
         self.placeness=list((n for n in self.graph.nodes() if self.graph.node[n]['bipartite']=='pl'))
-        
+        print("The basic properties of the network:")
         print('The number of venues: ', len(self.venues))
         print('The number of users: ', len(self.users))
         print('The number of placeness: ', len(self.placeness))
+        print('The number of edges:', self.graph.number_of_edges())
         
         return
         
@@ -79,7 +79,7 @@ class relevance:
     ## 
     
     def calculateEgocentricPagerankwithQuery(self,query,alpha,weights):
-        personalization_weight=sys.maxsize
+        personalization_weight=1000000#sys.maxint
         if query:
             personalized=dict.fromkeys(nx.nodes(self.graph),1)
             
@@ -101,6 +101,8 @@ class relevance:
                 #q=unicode(q)
 
                 match_query=self.get_placeness(q)
+                #print(match_query[0])
+                #print(personalization_weight*w)
                 for m in match_query:
                     personalized[m] += personalization_weight*w
                         #print q, m
@@ -132,16 +134,18 @@ class relevance:
             query+=self.convert_weather(weather_kwd)
         if user_kwd:
             query+=self.convert_user(user_kwd)
-        
-        print(query)
+
+        #print(query)
         
         weights={'time': weight_time, 'with': weight_with, 'occasion': weight_occasion, 'mood': weight_mood, 'weather': weight_weather, 'user': weight_user}
-        
+
+        #print(weights)
+
         recommendation=self.EgocentricPagerankTopNwithQuery(query,topk,weight_query,weights)
                 
         end_time = time.time()
         
-        #print 'Running Time : %.03f s' % (end_time - start_time)
+        print('Done, it took %.03f seconds' % (end_time - start_time))
         running_time = end_time-start_time 
         
         return recommendation, running_time

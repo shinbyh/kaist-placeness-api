@@ -1,0 +1,40 @@
+<gexf version="1.1" xmlns="http://www.gexf.net/1.1draft" xmlns:viz="http://www.gexf.net/1.1draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance">
+  <graph defaultedgetype="undirected" mode="static">
+    <attributes class="node" mode="static">
+      <attribute id="0" title="bipartite" type="string" />
+    </attributes>
+    <nodes>
+      <node id="Season_spring/isWeekend_weekday/maen_evening/Mood_편안한/Occasion_나들이" label="Season_spring/isWeekend_weekday/maen_evening/Mood_편안한/Occasion_나들이">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_편안한/Season_autumn/isHoliday_휴일/maen_afternoon/Occasion_데이트/isWeekend_weekend" label="Mood_편안한/Season_autumn/isHoliday_휴일/maen_afternoon/Occasion_데이트/isWeekend_weekend">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_편안한/Season_autumn/isHoliday_휴일/maen_afternoon/Occasion_카페/isWeekend_weekend" label="Mood_편안한/Season_autumn/isHoliday_휴일/maen_afternoon/Occasion_카페/isWeekend_weekend">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_편안한/Season_summer/isHoliday_휴일/maen_night/Occasion_카페/isWeekend_weekend" label="Mood_편안한/Season_summer/isHoliday_휴일/maen_night/Occasion_카페/isWeekend_weekend">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="1030841345" label="1030841345">
+        <attvalues>
+          <attvalue for="0" value="venue" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="9098" source="Season_spring/isWeekend_weekday/maen_evening/Mood_편안한/Occasion_나들이" target="1030841345" weight="0.321985811138" />
+      <edge id="6446" source="Mood_편안한/Season_autumn/isHoliday_휴일/maen_afternoon/Occasion_데이트/isWeekend_weekend" target="1030841345" weight="0.725494612051" />
+      <edge id="21791" source="Mood_편안한/Season_autumn/isHoliday_휴일/maen_afternoon/Occasion_카페/isWeekend_weekend" target="1030841345" weight="0.451536670009" />
+      <edge id="22040" source="Mood_편안한/Season_summer/isHoliday_휴일/maen_night/Occasion_카페/isWeekend_weekend" target="1030841345" weight="0.407550415222" />
+    </edges>
+  </graph>
+</gexf>

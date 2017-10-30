@@ -1,0 +1,238 @@
+<gexf version="1.1" xmlns="http://www.gexf.net/1.1draft" xmlns:viz="http://www.gexf.net/1.1draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance">
+  <graph defaultedgetype="undirected" mode="static">
+    <attributes class="node" mode="static">
+      <attribute id="0" title="bipartite" type="string" />
+    </attributes>
+    <nodes>
+      <node id="Mood_편안한/Season_autumn/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with혼자" label="Mood_편안한/Season_autumn/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with혼자">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_세련된/Season_summer/isHoliday_휴일/maen_afternoon/isWeekend_weekend/With_with유아" label="Mood_세련된/Season_summer/isHoliday_휴일/maen_afternoon/isWeekend_weekend/With_with유아">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_winter/isWeekend_weekend/maen_afternoon/Mood_세련된/isHoliday_휴일" label="Season_winter/isWeekend_weekend/maen_afternoon/Mood_세련된/isHoliday_휴일">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_세련된/Season_winter/maen_afternoon/Occasion_카페/isWeekend_weekday/With_with혼자" label="Mood_세련된/Season_winter/maen_afternoon/Occasion_카페/isWeekend_weekday/With_with혼자">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_autumn/isWeekend_weekend/maen_night/Mood_편안한/Occasion_휴식" label="Season_autumn/isWeekend_weekend/maen_night/Mood_편안한/Occasion_휴식">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="575839157" label="575839157">
+        <attvalues>
+          <attvalue for="0" value="venue" />
+        </attvalues>
+      </node>
+      <node id="Season_autumn/isWeekend_weekend/With_with유아/Mood_편안한/maen_evening" label="Season_autumn/isWeekend_weekend/With_with유아/Mood_편안한/maen_evening">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_세련된/Season_winter/maen_afternoon/Occasion_쇼핑/isWeekend_weekday/With_with가족" label="Mood_세련된/Season_winter/maen_afternoon/Occasion_쇼핑/isWeekend_weekday/With_with가족">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_summer/isWeekend_weekend/maen_afternoon/Mood_세련된/Occasion_카페" label="Season_summer/isWeekend_weekend/maen_afternoon/Mood_세련된/Occasion_카페">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_세련된/Season_winter/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with혼자" label="Mood_세련된/Season_winter/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with혼자">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_세련된/Season_autumn/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with혼자" label="Mood_세련된/Season_autumn/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with혼자">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_편안한/Season_summer/isHoliday_휴일/maen_afternoon/isWeekend_weekend/With_with유아" label="Mood_편안한/Season_summer/isHoliday_휴일/maen_afternoon/isWeekend_weekend/With_with유아">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_summer/isWeekend_weekday/maen_evening/Mood_세련된/Occasion_나들이" label="Season_summer/isWeekend_weekday/maen_evening/Mood_세련된/Occasion_나들이">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_winter/isWeekend_weekend/maen_afternoon/Mood_편안한/isHoliday_휴일" label="Season_winter/isWeekend_weekend/maen_afternoon/Mood_편안한/isHoliday_휴일">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_세련된/Season_winter/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with유아" label="Mood_세련된/Season_winter/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with유아">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_autumn/isWeekend_weekend/With_with유아/Mood_세련된/maen_evening" label="Season_autumn/isWeekend_weekend/With_with유아/Mood_세련된/maen_evening">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_summer/isWeekend_weekday/maen_night/Mood_세련된/Occasion_휴식" label="Season_summer/isWeekend_weekday/maen_night/Mood_세련된/Occasion_휴식">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_spring/isWeekend_weekday/maen_evening/Mood_편안한/Occasion_휴식" label="Season_spring/isWeekend_weekday/maen_evening/Mood_편안한/Occasion_휴식">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_세련된/Season_summer/maen_morning/Occasion_쇼핑/isWeekend_weekday/With_with유아" label="Mood_세련된/Season_summer/maen_morning/Occasion_쇼핑/isWeekend_weekday/With_with유아">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_winter/isWeekend_weekday/maen_morning/Mood_세련된/Occasion_데이트" label="Season_winter/isWeekend_weekday/maen_morning/Mood_세련된/Occasion_데이트">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_세련된/Season_winter/maen_afternoon/Occasion_데이트/isWeekend_weekday/With_with유아" label="Mood_세련된/Season_winter/maen_afternoon/Occasion_데이트/isWeekend_weekday/With_with유아">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_autumn/isWeekend_weekend/maen_evening/Mood_세련된/Occasion_카페" label="Season_autumn/isWeekend_weekend/maen_evening/Mood_세련된/Occasion_카페">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_세련된/Season_summer/maen_morning/Occasion_카페/isWeekend_weekday/With_with유아" label="Mood_세련된/Season_summer/maen_morning/Occasion_카페/isWeekend_weekday/With_with유아">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_편안한/Season_winter/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with유아" label="Mood_편안한/Season_winter/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with유아">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_편안한/Season_winter/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with가족" label="Mood_편안한/Season_winter/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with가족">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_세련된/Season_winter/maen_afternoon/Occasion_카페/isWeekend_weekday/With_with가족" label="Mood_세련된/Season_winter/maen_afternoon/Occasion_카페/isWeekend_weekday/With_with가족">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="309114510" label="309114510">
+        <attvalues>
+          <attvalue for="0" value="venue" />
+        </attvalues>
+      </node>
+      <node id="Season_summer/isWeekend_weekday/maen_night/Mood_편안한/Occasion_휴식" label="Season_summer/isWeekend_weekday/maen_night/Mood_편안한/Occasion_휴식">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_spring/isWeekend_weekday/maen_evening/Mood_세련된/Occasion_휴식" label="Season_spring/isWeekend_weekday/maen_evening/Mood_세련된/Occasion_휴식">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_spring/isWeekend_weekday/maen_evening/Mood_세련된/Occasion_카페" label="Season_spring/isWeekend_weekday/maen_evening/Mood_세련된/Occasion_카페">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_autumn/isWeekend_weekend/maen_night/Mood_세련된/Occasion_카페" label="Season_autumn/isWeekend_weekend/maen_night/Mood_세련된/Occasion_카페">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_편안한/Season_winter/maen_afternoon/Occasion_데이트/isWeekend_weekday/With_with유아" label="Mood_편안한/Season_winter/maen_afternoon/Occasion_데이트/isWeekend_weekday/With_with유아">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_autumn/isWeekend_weekend/maen_night/Mood_세련된/Occasion_휴식" label="Season_autumn/isWeekend_weekend/maen_night/Mood_세련된/Occasion_휴식">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_winter/isWeekend_weekday/maen_afternoon/Mood_세련된/Occasion_카페" label="Season_winter/isWeekend_weekday/maen_afternoon/Mood_세련된/Occasion_카페">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_winter/isWeekend_weekday/maen_morning/Mood_세련된/Occasion_휴식" label="Season_winter/isWeekend_weekday/maen_morning/Mood_세련된/Occasion_휴식">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_autumn/isWeekend_weekend/maen_night/Mood_세련된/Occasion_디저트" label="Season_autumn/isWeekend_weekend/maen_night/Mood_세련된/Occasion_디저트">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_세련된/Season_winter/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with가족" label="Mood_세련된/Season_winter/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with가족">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_spring/isWeekend_weekend/maen_evening/Mood_세련된/Occasion_카페" label="Season_spring/isWeekend_weekend/maen_evening/Mood_세련된/Occasion_카페">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="5465" source="Mood_편안한/Season_autumn/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with혼자" target="575839157" weight="0.130225129348" />
+      <edge id="9677" source="Mood_세련된/Season_summer/isHoliday_휴일/maen_afternoon/isWeekend_weekend/With_with유아" target="575839157" weight="0.144705961658" />
+      <edge id="2328" source="Season_winter/isWeekend_weekend/maen_afternoon/Mood_세련된/isHoliday_휴일" target="575839157" weight="0.119950815315" />
+      <edge id="13367" source="Mood_세련된/Season_winter/maen_afternoon/Occasion_카페/isWeekend_weekday/With_with혼자" target="309114510" weight="0.264244506744" />
+      <edge id="9678" source="Season_autumn/isWeekend_weekend/maen_night/Mood_편안한/Occasion_휴식" target="575839157" weight="0.144705961658" />
+      <edge id="9680" source="575839157" target="Mood_편안한/Season_winter/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with유아" weight="0.169461108001" />
+      <edge id="9676" source="575839157" target="Season_spring/isWeekend_weekday/maen_evening/Mood_편안한/Occasion_휴식" weight="0.136483726041" />
+      <edge id="9679" source="575839157" target="Season_winter/isWeekend_weekend/maen_afternoon/Mood_편안한/isHoliday_휴일" weight="0.130225129348" />
+      <edge id="9674" source="575839157" target="Season_autumn/isWeekend_weekend/maen_night/Mood_세련된/Occasion_휴식" weight="0.144705961658" />
+      <edge id="9675" source="575839157" target="Mood_세련된/Season_autumn/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with혼자" weight="0.144705961658" />
+      <edge id="935" source="575839157" target="Mood_편안한/Season_summer/isHoliday_휴일/maen_afternoon/isWeekend_weekend/With_with유아" weight="0.144705961658" />
+      <edge id="9682" source="575839157" target="Mood_세련된/Season_winter/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with유아" weight="0.169461108001" />
+      <edge id="9681" source="575839157" target="Mood_세련된/Season_winter/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with가족" weight="0.130225129348" />
+      <edge id="1702" source="575839157" target="Mood_세련된/Season_winter/maen_afternoon/Occasion_데이트/isWeekend_weekday/With_with유아" weight="0.144705961658" />
+      <edge id="117" source="575839157" target="Season_summer/isWeekend_weekday/maen_night/Mood_편안한/Occasion_휴식" weight="0.0999646260688" />
+      <edge id="9683" source="575839157" target="Mood_편안한/Season_winter/maen_afternoon/Occasion_데이트/isWeekend_weekday/With_with유아" weight="0.130225129348" />
+      <edge id="9684" source="575839157" target="Mood_편안한/Season_winter/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with가족" weight="0.144705961658" />
+      <edge id="9673" source="575839157" target="Season_autumn/isWeekend_weekend/With_with유아/Mood_세련된/maen_evening" weight="0.144705961658" />
+      <edge id="9685" source="575839157" target="Season_autumn/isWeekend_weekend/With_with유아/Mood_편안한/maen_evening" weight="0.144705961658" />
+      <edge id="9686" source="575839157" target="Season_summer/isWeekend_weekday/maen_night/Mood_세련된/Occasion_휴식" weight="0.119950815315" />
+      <edge id="9672" source="575839157" target="Season_spring/isWeekend_weekday/maen_evening/Mood_세련된/Occasion_휴식" weight="0.158204974507" />
+      <edge id="16926" source="Mood_세련된/Season_winter/maen_afternoon/Occasion_쇼핑/isWeekend_weekday/With_with가족" target="309114510" weight="0.225643251789" />
+      <edge id="15010" source="Season_summer/isWeekend_weekend/maen_afternoon/Mood_세련된/Occasion_카페" target="309114510" weight="0.15587708365" />
+      <edge id="15364" source="Mood_세련된/Season_winter/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with혼자" target="309114510" weight="0.20306296516" />
+      <edge id="11113" source="Season_summer/isWeekend_weekday/maen_evening/Mood_세련된/Occasion_나들이" target="309114510" weight="0.164461710206" />
+      <edge id="16928" source="Season_winter/isWeekend_weekday/maen_morning/Mood_세련된/Occasion_데이트" target="309114510" weight="0.174615168367" />
+      <edge id="16921" source="Mood_세련된/Season_summer/maen_morning/Occasion_쇼핑/isWeekend_weekday/With_with유아" target="309114510" weight="0.20306296516" />
+      <edge id="16920" source="Season_autumn/isWeekend_weekend/maen_evening/Mood_세련된/Occasion_카페" target="309114510" weight="0.187041996835" />
+      <edge id="2053" source="Mood_세련된/Season_summer/maen_morning/Occasion_카페/isWeekend_weekday/With_with유아" target="309114510" weight="0.20306296516" />
+      <edge id="16925" source="Mood_세련된/Season_winter/maen_afternoon/Occasion_카페/isWeekend_weekday/With_with가족" target="309114510" weight="0.264244506744" />
+      <edge id="16892" source="309114510" target="Season_spring/isWeekend_weekday/maen_evening/Mood_세련된/Occasion_카페" weight="0.261412209671" />
+      <edge id="16919" source="309114510" target="Season_autumn/isWeekend_weekend/maen_night/Mood_세련된/Occasion_카페" weight="0.15587708365" />
+      <edge id="16923" source="309114510" target="Season_autumn/isWeekend_weekend/maen_night/Mood_세련된/Occasion_디저트" weight="0.20306296516" />
+      <edge id="16639" source="309114510" target="Season_winter/isWeekend_weekday/maen_morning/Mood_세련된/Occasion_휴식" weight="0.174615168367" />
+      <edge id="16924" source="309114510" target="Mood_세련된/Season_winter/maen_afternoon/Occasion_휴식/isWeekend_weekday/With_with가족" weight="0.20306296516" />
+      <edge id="5322" source="309114510" target="Season_winter/isWeekend_weekday/maen_afternoon/Mood_세련된/Occasion_카페" weight="0.164461710206" />
+      <edge id="16927" source="309114510" target="Season_spring/isWeekend_weekend/maen_evening/Mood_세련된/Occasion_카페" weight="0.164461710206" />
+    </edges>
+  </graph>
+</gexf>

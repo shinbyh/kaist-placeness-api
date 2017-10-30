@@ -1,0 +1,124 @@
+<gexf version="1.1" xmlns="http://www.gexf.net/1.1draft" xmlns:viz="http://www.gexf.net/1.1draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance">
+  <graph defaultedgetype="undirected" mode="static">
+    <attributes class="node" mode="static">
+      <attribute id="0" title="bipartite" type="string" />
+    </attributes>
+    <nodes>
+      <node id="Season_autumn/isWeekend_weekend/maen_night/Mood_로맨틱한/Occasion_경조사" label="Season_autumn/isWeekend_weekend/maen_night/Mood_로맨틱한/Occasion_경조사">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_로맨틱한/Season_winter/isHoliday_휴일/maen_night/Occasion_끼니/isWeekend_weekend" label="Mood_로맨틱한/Season_winter/isHoliday_휴일/maen_night/Occasion_끼니/isWeekend_weekend">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_autumn/isWeekend_weekend/maen_night/Mood_로맨틱한/Occasion_여행" label="Season_autumn/isWeekend_weekend/maen_night/Mood_로맨틱한/Occasion_여행">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_autumn/isWeekend_weekend/maen_afternoon/Mood_로맨틱한/Occasion_뷰티" label="Season_autumn/isWeekend_weekend/maen_afternoon/Mood_로맨틱한/Occasion_뷰티">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_로맨틱한/Season_summer/maen_afternoon/Occasion_카페/isWeekend_weekday/With_with가족" label="Mood_로맨틱한/Season_summer/maen_afternoon/Occasion_카페/isWeekend_weekday/With_with가족">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_summer/isWeekend_weekday/maen_afternoon/Mood_로맨틱한/Occasion_경조사" label="Season_summer/isWeekend_weekday/maen_afternoon/Mood_로맨틱한/Occasion_경조사">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_autumn/isWeekend_weekend/maen_night/Mood_로맨틱한/Occasion_데이트" label="Season_autumn/isWeekend_weekend/maen_night/Mood_로맨틱한/Occasion_데이트">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_autumn/isWeekend_weekday/maen_afternoon/Mood_로맨틱한/Occasion_나들이" label="Season_autumn/isWeekend_weekday/maen_afternoon/Mood_로맨틱한/Occasion_나들이">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_로맨틱한/Season_summer/isHoliday_휴일/maen_night/Occasion_여행/isWeekend_weekend" label="Mood_로맨틱한/Season_summer/isHoliday_휴일/maen_night/Occasion_여행/isWeekend_weekend">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_winter/isWeekend_weekday/maen_night/Mood_로맨틱한/Occasion_경조사" label="Season_winter/isWeekend_weekday/maen_night/Mood_로맨틱한/Occasion_경조사">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_로맨틱한/Season_winter/isHoliday_휴일/maen_night/Occasion_데이트/isWeekend_weekend" label="Mood_로맨틱한/Season_winter/isHoliday_휴일/maen_night/Occasion_데이트/isWeekend_weekend">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_로맨틱한/Season_winter/isHoliday_휴일/maen_night/Occasion_나들이/isWeekend_weekend" label="Mood_로맨틱한/Season_winter/isHoliday_휴일/maen_night/Occasion_나들이/isWeekend_weekend">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_winter/isWeekend_weekend/With_with유아/Mood_로맨틱한/maen_evening" label="Season_winter/isWeekend_weekend/With_with유아/Mood_로맨틱한/maen_evening">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_winter/isWeekend_weekday/maen_night/Mood_로맨틱한/Occasion_여행" label="Season_winter/isWeekend_weekday/maen_night/Mood_로맨틱한/Occasion_여행">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_winter/isWeekend_weekend/maen_evening/Mood_로맨틱한/Occasion_여행" label="Season_winter/isWeekend_weekend/maen_evening/Mood_로맨틱한/Occasion_여행">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Mood_로맨틱한/Season_winter/isHoliday_휴일/maen_night/Occasion_여행/isWeekend_weekend" label="Mood_로맨틱한/Season_winter/isHoliday_휴일/maen_night/Occasion_여행/isWeekend_weekend">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_winter/isWeekend_weekday/maen_night/Mood_로맨틱한/Occasion_운동" label="Season_winter/isWeekend_weekday/maen_night/Mood_로맨틱한/Occasion_운동">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="Season_winter/isWeekend_weekend/maen_evening/Mood_로맨틱한/Occasion_쇼핑" label="Season_winter/isWeekend_weekend/maen_evening/Mood_로맨틱한/Occasion_쇼핑">
+        <attvalues>
+          <attvalue for="0" value="pl" />
+        </attvalues>
+      </node>
+      <node id="280467346" label="280467346">
+        <attvalues>
+          <attvalue for="0" value="venue" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="8403" source="Season_autumn/isWeekend_weekend/maen_night/Mood_로맨틱한/Occasion_경조사" target="280467346" weight="0.204737854223" />
+      <edge id="8404" source="Season_winter/isWeekend_weekday/maen_night/Mood_로맨틱한/Occasion_경조사" target="280467346" weight="0.0682459514077" />
+      <edge id="8405" source="Season_winter/isWeekend_weekday/maen_night/Mood_로맨틱한/Occasion_운동" target="280467346" weight="0.0614165287157" />
+      <edge id="8406" source="Season_autumn/isWeekend_weekend/maen_night/Mood_로맨틱한/Occasion_여행" target="280467346" weight="0.0682459514077" />
+      <edge id="8407" source="Season_autumn/isWeekend_weekend/maen_afternoon/Mood_로맨틱한/Occasion_뷰티" target="280467346" weight="0.0682459514077" />
+      <edge id="8408" source="Mood_로맨틱한/Season_summer/maen_afternoon/Occasion_카페/isWeekend_weekday/With_with가족" target="280467346" weight="0.0682459514077" />
+      <edge id="8409" source="Season_summer/isWeekend_weekday/maen_afternoon/Mood_로맨틱한/Occasion_경조사" target="280467346" weight="0.0682459514077" />
+      <edge id="8412" source="280467346" target="Season_winter/isWeekend_weekend/With_with유아/Mood_로맨틱한/maen_evening" weight="0.0682459514077" />
+      <edge id="8410" source="280467346" target="Season_autumn/isWeekend_weekend/maen_night/Mood_로맨틱한/Occasion_데이트" weight="0.136491902815" />
+      <edge id="8411" source="280467346" target="Season_autumn/isWeekend_weekday/maen_afternoon/Mood_로맨틱한/Occasion_나들이" weight="0.0682459514077" />
+      <edge id="8419" source="280467346" target="Mood_로맨틱한/Season_summer/isHoliday_휴일/maen_night/Occasion_여행/isWeekend_weekend" weight="0.079920926613" />
+      <edge id="8414" source="280467346" target="Mood_로맨틱한/Season_winter/isHoliday_휴일/maen_night/Occasion_나들이/isWeekend_weekend" weight="0.399604633065" />
+      <edge id="8415" source="280467346" target="Mood_로맨틱한/Season_winter/isHoliday_휴일/maen_night/Occasion_데이트/isWeekend_weekend" weight="0.395996833417" />
+      <edge id="8416" source="280467346" target="Season_winter/isWeekend_weekend/maen_evening/Mood_로맨틱한/Occasion_여행" weight="0.136491902815" />
+      <edge id="641" source="280467346" target="Mood_로맨틱한/Season_winter/isHoliday_휴일/maen_night/Occasion_여행/isWeekend_weekend" weight="0.559446486291" />
+      <edge id="8413" source="280467346" target="Mood_로맨틱한/Season_winter/isHoliday_휴일/maen_night/Occasion_끼니/isWeekend_weekend" weight="0.42991570101" />
+      <edge id="8420" source="280467346" target="Season_winter/isWeekend_weekend/maen_evening/Mood_로맨틱한/Occasion_쇼핑" weight="0.079920926613" />
+      <edge id="8421" source="280467346" target="Season_winter/isWeekend_weekday/maen_night/Mood_로맨틱한/Occasion_여행" weight="0.0614165287157" />
+    </edges>
+  </graph>
+</gexf>
