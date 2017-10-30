@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>KAIST Placeness API</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+    body {
+        font: 400 15px Lato, sans-serif;
+        line-height: 1.8;
+        color: #818181;
+    }
+    h2 {
+        font-size: 24px;
+        text-transform: uppercase;
+        color: #303030;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+    h4 {
+        font-size: 19px;
+        line-height: 1.375em;
+        color: #303030;
+        font-weight: 400;
+        margin-bottom: 30px;
+    }
+    .jumbotron {
+        background-color: #0174DF;
+        color: #fff;
+        padding: 100px 25px;
+        font-family: Montserrat, sans-serif;
+    }
+    .container-fluid {
+        padding: 60px 50px;
+    }
+    .bg-grey {
+        background-color: #f6f6f6;
+    }
+    .logo-small {
+        color: #0174DF;
+        font-size: 50px;
+    }
+    .logo {
+        color: #0174DF;
+        font-size: 200px;
+    }
+    .thumbnail {
+        padding: 0 0 15px 0;
+        border: none;
+        border-radius: 0;
+    }
+    .thumbnail img {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 10px;
+    }
+    .navbar {
+        margin-bottom: 0;
+        background-color: #0174DF;
+        z-index: 9999;
+        border: 0;
+        font-size: 12px !important;
+        line-height: 1.42857143 !important;
+        letter-spacing: 4px;
+        border-radius: 0;
+        font-family: Montserrat, sans-serif;
+    }
+    .navbar li a, .navbar .navbar-brand {
+        color: #fff !important;
+    }
+    .navbar-nav li a:hover, .navbar-nav li.active a {
+        color: #0174DF !important;
+        background-color: #fff !important;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: transparent;
+        color: #fff !important;
+    }
+	</style>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Home</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/">KOREAN</a></li>
+        <li><a href="#placeness">PLACENESS</a></li>
+        <li><a href="#api">API</a></li>
+        <li><a href="#example">SAMPLE APP</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+  <h1>KAIST Placeness Mining/Extraction API</h1>
+  <p>
+	We provide place information at your needs, based on social contexts of places.
+    <br />
+	</p>
+  <br />
+
+</div>
+
+<div id="example" class="container-fluid">
+  <div class="row" style="margin-bottom:40px;">
+    <div class="col-sm-8">
+      <h2>SAMPLE WEB APPLICATION</h2>
+      <h4>
+        You may check the placeness information of places 500m away from COEX or I'Park Mall in Seoul, with no need of REST API.
+        Check each place's information using the search bar below.
+      </h4>
+      <button class="btn btn-default btn-lg" onclick="location.href='http://placeness.kaist.ac.kr/wiki/'">Go to sample web application</button>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-globe logo"></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="center-block" style="width:60%;">
+      <form id="hotspot_search_form" action="hotspot">
+        <div class="input-group">
+          <input id="hotspot_id" name="hotspot_id" class="form-control" size="50" placeholder="instagram location ID (example: 309128)" form="hotspot_search_form" >
+          <div class="input-group-btn">
+            <button class="btn btn-primary" type="submit">Check placeness information</button>
+          </div>
+        </div>
+      </form>
+
+      <br />
+      <form id="placeness_search_form" action="district-placeness">
+        <div class="form-group row">
+            <div class="col-xs-2">
+              <select id="district" name="district" class="form-control" form="placeness_search_form">
+                <option value="coex">COEX</option>
+                <option value="iparkmall">I'Park Mall</option>
+              </select>
+            </div>
+            <div class="col-xs-3">
+              <select id="activity" name="activity" class="form-control" form="placeness_search_form">
+                <option value="끼니" selected="selected">Meals</option>
+                <option value="데이트">Date</option>
+                <option value="디저트">Deserts</option>
+                <option value="음주">Drinking</option>
+                <option value="문화생활">Cultural Life</option>
+                <option value="운동">Working out</option>
+                <option value="영화">Movie</option>
+                <option value="뷰티">Beauty</option>
+                <option value="쇼핑">Shopping</option>
+                <option value="나들이">Picnic</option>
+                <option value="경조사">Congratulation or Condolence</option>
+              </select>
+            </div>
+            <div class="col-xs-3">
+              <select id="maen" name="maen" class="form-control" form="placeness_search_form">
+                <option value="none" selected="selected">(time)</option>
+                <option value="morning">morning</option>
+                <option value="afternoon">afternoon</option>
+                <option value="evening">evening</option>
+                <option value="night">night</option>
+              </select>
+            </div>
+            <div class="col-xs-3">
+              <select id="mood" name="mood" class="form-control" form="placeness_search_form">
+                <option value="none" selected="selected">(mood)</option>
+                <option value="전통적">traditional</option>
+                <option value="세련된">refined</option>
+                <option value="친절한">kind</option>
+                <option value="로맨틱한">romantic</option>
+                <option value="편안한">relaxing</option>
+                <option value="북적이는">crowded</option>
+                <option value="답답한">stifling</option>
+              </select>
+            </div>
+            <div class="col-xs-1">
+              <button class="btn btn-primary" type="submit">Check placeness information</button>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div id="placeness" class="container-fluid bg-grey">
+	<div class="row">
+		<div class="col-sm-7">
+			<h2>Why "Placeness"?</h2>
+		  <p style="color:#303030;">
+                Human beings are social animals, spending everyday life at tremendous kinds of "places". At home, we may sleep or eat meals.
+                At cafe, we may meet our friends or study for exams. Our life is closely related to the "place" we visit.
+                <Strong>Sometimes we need to choose which place to go, depending on our own needs.</Strong>
+                For example, you might want somewhere relaxing to have dinner and chat with your friend.
+                You might want a romantic bar to date with your lover, or a nice restaurant to visit with your client for business.<br />
+        <br />
+            Each place is recognized differently, depending on our own situation and purpose.
+            A classroom might be a space for study when a professor is giving a lecture. However, it might be a theater for a movie watching club,
+            or a space for self-study when there's no lecture. We call this "Placeness", describing many different meanings of the physical place
+            depending on visitor's profile, activity and time.<br />
+        <br />
+            We integrated computer science and social science and launched "Placeness mining/extraction" service, to provide proper place information to users based on their needs.
+			</p>
+			<p> </p>
+		  <button class="btn btn-default btn-lg" onclick="location.href='http://placeness.kaist.ac.kr/wiki/'">Check details of the project</button>
+		</div>
+		<div class="col-sm-5">
+			<div class="thumbnail">
+				<img src="http://socialcomputing.kaist.ac.kr/placeness/definition1.png" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="api" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-globe logo"></span>
+    </div>
+    <div class="col-sm-8">
+      <h2>PLACENESS API</h2>
+      <h4>
+        We present a REST API, containing the placeness information extracted from social multimedia data of various places in COEX and I'Park Mall in Seoul.
+      </h4>
+      <button class="btn btn-default btn-lg" onclick="location.href='http://placeness.kaist.ac.kr/wiki/doku.php?id=wiki:getting_started'">How to use the API</button>
+    </div>
+  </div>
+</div>
+
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">CONTACT</h2>
+  <div class="row">
+    <div class="col-sm-8">
+      <p>Collarborative and Distributed Systems & Network Lab @ KAIST(<a href="http://cds.kaist.ac.kr">Homepage</a>)</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span>N1 823, KAIST, 291 Daehak-ro, Yuseong-gu, Daejeon 34141, Republic of Korea. </p>
+      <p><span class="glyphicon glyphicon-phone"></span>(042) 350-7759</p>
+      <p><span class="glyphicon glyphicon-envelope"></span>bhshin .AT. kaist.ac.kr</p>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+</html>

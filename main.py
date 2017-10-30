@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from flask import Flask, render_template, request
 from flask_restful import Resource, Api, reqparse
 from flask_api import status
@@ -17,7 +19,8 @@ import district_classifier
 import location_metadata
 import hotspot_analyzer
 import random
-import instagram_crawler
+#import instagram_crawler
+import instagram_post_crawler
 import visitor_logger
 import hotspot_mood
 import mood_extractor
@@ -45,6 +48,13 @@ def index():
     client_ip = request.environ['REMOTE_ADDR']
     visitor_logger.post_visit_data('web', client_ip, int(time.time()), '/', 'get')
     return render_template("index.html")
+
+
+@app.route('/eng', methods=['GET'])
+def index_eng():
+    client_ip = request.environ['REMOTE_ADDR']
+    visitor_logger.post_visit_data('web', client_ip, int(time.time()), '/', 'get')
+    return render_template("index_eng.html")
 
 @app.route('/sample/', methods=['GET'])
 def sample():
@@ -93,48 +103,27 @@ def sampleHotspotPlaceness():
     input_params = '/hotspot-placeness?sns_url={}'.format(sns_url)
     visitor_logger.post_visit_data('web', client_ip, int(time.time()), input_params, 'get')
 
+    # Data template
     proc_data = {
-        'season':'',
-        'mood':'',
-        'activity':'',
-        'isWeekend':'',
-        'maen':''
+        'location':{},
+        'season':'1',
+        'mood':'2',
+        'activity':'3',
+        'isWeekend':'4',
+        'maen':'5'
     }
 
-    if(sns_url == 'https://www.instagram.com/p/BTb50_Slnzp/'):
-        imgfile = 'static/iiii2.png'
-        proc_data['season'] = 'Spring'
-        proc_data['mood'] = '북적이는'
-        proc_data['activity'] = '끼니, 음주'
-        proc_data['isWeekend'] = 'weekend'
-        proc_data['maen'] = 'evening'
-    elif(sns_url == 'https://www.instagram.com/p/BXsLO_zhM0z/'):
-        imgfile = 'static/iiii.png'
-        proc_data['season'] = 'Spring'
-        proc_data['mood'] = '전통적, 친절한'
-        proc_data['activity'] = '끼니'
-        proc_data['isWeekend'] = 'weekend'
-        proc_data['maen'] = 'evening'
-        sns_timestamp = 1502505343
-    else:
-        # https://www.instagram.com/p/BFlOW81Dwwy/
-        proc_data['season'] = 'Spring'
-        proc_data['mood'] = '세련된'
-        proc_data['activity'] = '문화생활'
-        proc_data['isWeekend'] = 'weekday'
-        proc_data['maen'] = 'afternoon'
-        sns_timestamp = 1495161343
-        imgfile = 'static/iiii3.png'
+    data_dict = instagram_post_crawler.extract_instagram_data(sns_url)
+    proc_data['location']['name'] = data_dict['location']['name']
+    proc_data['location']['id'] = data_dict['location']['id']
 
-    tt = instagram_crawler.parsePost(sns_url)
-    sns_text = tt['caption']
-    sns_timestamp = tt['timestamp']
-    feature_ext_result = category_classifier.feature_extraction(sns_text, sns_timestamp)
+    #print(data_dict)
+    feature_ext_result = category_classifier.feature_extraction(data_dict['caption'], data_dict['timestamp'])
 
     return render_template("hotspot_placeness.html",
-                            sns_url=sns_url,
+                            requested_url=sns_url,
                             feature_ext_result=feature_ext_result,
-                            imgfile=imgfile,
+                            post_data=data_dict,
                             proc_data=proc_data)
 
 @app.route('/gmap', methods=['POST','GET'])
