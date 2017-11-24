@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>KAIST Placeness API</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+  }
+  </style>
+</head>
+
+<body>
+{% include 'partials/header2.html' %}
+  <div class="container-fluid" style="padding-top: 50px">
+    {% if hotspot is none %}
+      <h2>Hotspot ID를 입력하지 않았거나, 현재 지원하지 않는 장소입니다.</h2>
+    {% else %}
+      <h3>{{ hotspot }}의 장소성</h3>
+      <p id="summary">Hotspot ID: {{hotspot_id}} </p>
+      <table id="hotspot_table" class="table table-bordered">
+        <thead id="t_head">
+          <tr>
+            <th>Mood Credibility</th>
+            <th>Cramp</th>
+            <th>Modern</th>
+            <th>Relaxing</th>
+            <th>Romantic</th>
+            <th>Traditional</th>
+            <th>Loud</th>
+            <th>Friendly</th>
+          </tr>
+        </thead>
+        <tbody id="t_body">
+          <tr>
+            <td>
+			  {{ mood_credibility }}
+            </td>
+            <td>
+              {{ mood['Cramp'] }}
+            </td>
+            <td>
+              {{ mood['Modern'] }}
+            </td>
+            <td>
+              {{ mood['Relaxing'] }}
+            </td>
+            <td>
+              {{ mood['Romantic'] }}
+            </td>
+            <td>
+              {{ mood['Traditional'] }}
+            </td>
+            <td>
+              {{ mood['Loud'] }}
+            </td>
+            <td>
+              {{ mood['Friendly'] }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    {% endif %}
+  </div>	
+</body>
+</html>

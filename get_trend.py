@@ -38,7 +38,6 @@ def analysis(self, category, area, start, end, age, gender, limit):
         placeness['ipark'] = {}
     else:
         placeness[area] = {}
-
     for place in placeness:
         if category:
             for cat in categories:

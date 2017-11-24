@@ -6,7 +6,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+  $(document).ready(function(){
+      $("#hotspot-mode").change(function(){
+          if($(this).val() == 'binary'){
+              $("#threshold").attr("readonly",false);
+          } else {
+              $("#threshold").attr("readonly",true);
+          }
+      });
+      $("#mood-mode").change(function(){
+          if($(this).val() == 'binary'){
+              $("#mood-threshold").attr("readonly",false);
+          } else {
+              $("#mood-threshold").attr("readonly",true);
+          }
+      });
+      $('.hotspot-mood').submit(function(){
+          if($('#hotspot_name').val()==""){
+              $('#hotspot_name').val(284660200);
+          }
+          if($('#threshold').val()==""){
+              $('#threshold').val(0.2);
+          }
+      });
+      $('.mood').submit(function(){
+          if($('#mood-threshold').val()==""){
+              $('#mood-threshold').val(0.2);
+          }
+      });
+      $('#hotspot_search_form').submit(function(){
+          if($('#hotspot_id').val() == ""){
+              $('#hotspot_id').val(309128);
+          }
+      });
+  });
+
+  </script>  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style>
     body {
         font: 400 15px Lato, sans-serif;
@@ -78,6 +114,9 @@
     .navbar-default .navbar-toggle {
         border-color: transparent;
         color: #fff !important;
+    }
+    .relevance_extraction .form-group div {
+        margin-bottom: 15px;
     }
 	</style>
 </head>
@@ -191,6 +230,57 @@
             </div>
         </div>
       </form>
+    <hr />
+       <label  >Specific place mood inferencing</label>
+      <form class="hotspot-mood" method="GET" action="hotspot-mood">
+        <div class="form-group row">
+            <div class="col-xs-4">
+              <input id="hotspot_name" name="hotspot_name" class="form-control" size="50" placeholder="instagram location ID (ex: 309128)" >
+            </div>
+            <div class="col-xs-3">
+                <select id="hotspot-mode" name="mode" class="form-control">
+                  <option value="none" selected="selected">(mode)</option>
+                  <option value="multi-score" >multi-score</option>
+                  <option value="binary">binary</option>
+                </select>
+            </div>
+            <div class="col-xs-3">
+                <input type="number" id="threshold" name="threshold" step="0.01" class="form-control" min="0" max="1" readonly placeholder="threshold">
+            </div>
+            <div class="col-xs-1">
+              <button class="btn btn-primary" type="submit">check placenss information</button>
+            </div>
+        </div>
+      </form>
+    <hr />
+    <label  >Extracting mood by post</label>
+      <form class="mood" method="GET" action="place-mood">
+        <div class="form-group row">
+            <div class="col-xs-4">
+              <input id="post" name="post" class="form-control" size="50" placeholder="word you want to extract" required>
+            </div>
+            <div class="col-xs-3">
+                <select id="mood-mode" name="mode" class="form-control">
+                  <option value="multi-score" selected="selected">(mode)</option>
+                  <option value="multi-score" >multi-score</option>
+                  <option value="binary">binary</option>
+                </select>
+            </div>
+            <div class="col-xs-3">
+                <input type="number" id="mood-threshold" name="threshold" step="0.01" class="form-control" min="0" max="1" readonly placeholder="threshold">
+            </div>
+            <div class="col-xs-1">
+              <button class="btn btn-primary" type="submit">check placenss information</button>
+            </div>
+        </div>
+      </form>
+    <hr />
+     <label  >Relevance inferening</label>
+        {% include 'partials/relevance.html' %}
+
+    <hr />
+     <label  >Trend analysis of activities throughout time</label>
+        {% include 'partials/activity_trend.html' %}
     </div>
   </div>
 </div>

@@ -1,0 +1,122 @@
+<script>
+    $(document).ready(function(){
+      $('.relevance_extraction').submit(function(){
+            $(':input', this).each(function() {
+                this.disabled = !($(this).val());
+            });
+      });
+
+    })
+</script>
+
+
+<form class="relevance_extraction" method="GET" action="relevance-extraction">
+	  <div class="form-group row">
+		  <div class="col-xs-4">
+			<select name="time_kwd" class="form-control">
+				<option value="" selected="selected">(시간 키워드 선택)</option>
+				<option value="Season_spring" >봄</option>
+				<option value="Season_summer" >여름</option>
+				<option value="Season_autumn" >가을</option>
+				<option value="Season_winter" >겨울</option>
+				<option value="isWeekend_weekday" >주중</option>
+				<option value="isWeekend_weekend" >주말</option>
+				<option value="isHoliday_휴일">휴일</option>
+				<option value="isAnniversary_기념일" >기념일</option>
+				<option value="maen_morning" >아침</option>
+				<option value="maen_afternoon" >오후</option>
+				<option value="maen_evening" >저녁</option>
+				<option value="maen_night" >밤</option>
+			</select>
+		  </div>
+		  <div class="col-xs-2">
+			  <input type="number"  name="weight_date" step="0.01" class="form-control" min="0" max="1" placeholder="시간 가중치">
+		  </div>
+		  <div class="col-xs-4">
+			  <select name="with_kwd" class="form-control">
+				  <option value="" selected="selected">(동행인 키워드 선택)</option>
+				  <option value="With_with유아" >유아</option>
+				  <option value="With_with친구" >친구</option>
+				  <option value="With_with가족" >가족</option>
+				  <option value="With_with어른" >어른</option>
+			  </select>
+		  </div>
+		  <div class="col-xs-2">
+			  <input type="number"  name="weight_with" step="0.1" class="form-control" min="0" placeholder="동행인 가중치">
+		  </div>
+		  <div class="col-xs-4">
+			  <select name="occasion_kwd" class="form-control">
+				  <option value="" selected="selected">(상황 키워드 선택)</option>
+				  <option value="Occasion_카페" >카페</option>
+				  <option value="Occasion_운동" >운동</option>
+				  <option value="Occasion_회식" >회식</option>
+				  <option value="Occasion_의료" >의료</option>
+				  <option value="Occasion_집안일" >집안일</option>
+				  <option value="Occasion_휴식" >휴식</option>
+				  <option value="Occasion_문화생활" >문화생활</option>
+				  <option value="Occasion_나들이" >나들이</option>
+				  <option value="Occasion_맛집탐방" >맛집탐방</option>
+				  <option value="Occasion_키덜트" >키덜트</option>
+				  <option value="Occasion_데이트" >데이트</option>
+				  <option value="Occasion_공부" >공부</option>
+				  <option value="Occasion_디저트" >디저트</option>
+				  <option value="Occasion_영화" >영화</option>
+				  <option value="Occasion_뷰티" >뷰티</option>
+				  <option value="Occasion_끼니" >끼니</option>
+				  <option value="Occasion_음주" >음주</option>
+				  <option value="Occasion_경조사" >경조사</option>
+				  <option value="Occasion_쇼핑" >쇼핑</option>
+				  <option value="Occasion_여행" >여행</option>
+			  </select>
+              </div>
+              <div class="col-xs-2">
+                  <input type="number"  name="weight_occasion" step="0.1" class="form-control" min="0" placeholder="상황 가중치">
+              </div>
+              <div class="col-xs-4">
+                  <select name="mood_kwd" class="form-control">
+                     <option value="" selected="selected">(분위기 키워드 선택)</option>
+                     <option value="Mood_전통적" >전통적</option>
+                     <option value="Mood_세련된" >세련된</option>
+                     <option value="Mood_답답한" >답답한</option>
+                     <option value="Mood_친절한" >친절한</option>
+                     <option value="Mood_편안한" >편안한</option>
+                     <option value="Mood_로맨틱한" >로멘틱한</option>
+                     <option value="Mood_북적이는" >북적이는</option>
+                  </select>
+              </div>
+              <div class="col-xs-2">
+                  <input type="number"  name="weight_mood" step="0.1" class="form-control" min="0" placeholder="분위기 가중치">
+              </div>
+              <div class="col-xs-4">
+                  <select name="weather_kwd" class="form-control">
+                     <option value="" selected="selected">(날씨 키워드 선택)</option>
+                     <option value="rain_normal" >비 평균</option>
+                     <option value="rain_no" >비 없음</option>
+                     <option value="rain_low" >비 조금</option>
+                     <option value="rain_high" >비 많이</option>
+
+                     <option value="temp_normal">온도 평균</option>
+                     <option value="temp_low" >온도 낮음</option>
+                     <option value="temp_high" >온도 높음</option>
+
+                     <option value="wind_normal" >바람 평균</option>
+                     <option value="wind_high" >바람 심함</option>
+
+                     <option value="snow_normal" >눈 평균</option>
+                     <option value="snow_no" >눈 없음</option>
+                     <option value="snow_low" >눈 조금</option>
+                     <option value="snow_high" >눈 많이</option>
+                  </select>
+              </div>
+              <div class="col-xs-2">
+                  <input type="number"  name="weight_weather" step="0.1" class="form-control" min="0" placeholder="날씨 가중치">
+              </div>
+              <div class="col-xs-3">
+                  <input type="number"  name="topk" step="1" class="form-control" min="0" placeholder="가져올 장소의 개수">
+              </div>
+
+              <div class="col-xs-3">
+                <button class="btn btn-primary" type="submit">장소성 정보 확인</button>
+              </div>
+          </div>
+      </form>

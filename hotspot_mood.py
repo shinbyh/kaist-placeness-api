@@ -112,7 +112,7 @@ class MoodExtraction(Resource):
         for w in list_friendlyWords:
             count += textTotal.count(w)
             try:
-                scoreByModel += modelMap(model.similarity(w,u'친절한'))
+                scoreByModel += modelMap(model.similarity(w,u'친절'))
             except:
                 pass
         count += scoreByModel
@@ -122,8 +122,11 @@ class MoodExtraction(Resource):
 
         count = 0
         scoreByModel = 0
+        print('=== Mood-inferencing Keywords ===')
         for w in list_crampWords:
             count += textTotal.count(w)
+            if textTotal.count(w) > 0:
+                print (w)
             try:
                 scoreByModel += modelMap(model.similarity(w,u'답답한'))
             except:
@@ -137,6 +140,8 @@ class MoodExtraction(Resource):
         scoreByModel = 0
         for w in list_traditionalWords:
             count += textTotal.count(w)
+            if textTotal.count(w) > 0:
+                print (w)
             try:
                 scoreByModel += modelMap(model.similarity(w,u'전통적'))
             except:
@@ -150,6 +155,8 @@ class MoodExtraction(Resource):
         scoreByModel = 0
         for w in list_modernWords:
             count += textTotal.count(w)
+            if textTotal.count(w) > 0:
+                print (w)
             try:
                 scoreByModel += modelMap(model.similarity(w,u'세련된'))
             except:
@@ -163,6 +170,8 @@ class MoodExtraction(Resource):
         scoreByModel = 0
         for w in list_romanticWords:
             count += textTotal.count(w)
+            if textTotal.count(w) > 0:
+                print (w)
             try:
                 scoreByModel += modelMap(model.similarity(w,u'로맨틱한'))
             except:
@@ -177,6 +186,8 @@ class MoodExtraction(Resource):
         scoreByModel = 0
         for w in list_relaxingWords:
             count += textTotal.count(w)
+            if textTotal.count(w) > 0:
+                print (w)
             try:
                 scoreByModel += modelMap(model.similarity(w,u'편안한'))
             except:
@@ -190,6 +201,8 @@ class MoodExtraction(Resource):
         scoreByModel = 0
         for w in list_loudWords:
             count += textTotal.count(w)
+            if textTotal.count(w) > 0:
+                print (w)
             try:
                 scoreByModel += modelMap(model.similarity(w,u'북적이는'))
             except:
@@ -224,6 +237,8 @@ class MoodExtraction(Resource):
         except:
             wordModelCred = random.uniform(0,0.2)
 
+        print('=== Credibility weight based on word appearance freq ===')
+        print(totalCount)
         mc += (credMap(removeOutBound(totalCount, 0.1, 5)) + removeOutBound(wordModelCred, 0, 0.2))
 
 
@@ -254,31 +269,39 @@ def getHotspotMoodDistribution(threshold, mode, hotspotName):
         if files.endswith('.txt'):
             txtFiles.append(files)
 
-    for file in txtFiles:
-        with open(directory+'/'+file, 'r') as inFile:
-            hotspots = {}
-            moods = {}
-            texts = {}
-            creds = {}
-            matched = False
-            for line in inFile:
-                data = json.loads(line)
-                # print data['text']
-                hotspotName = data['hotspot']
-                if hotspotName == pid:
+        for file in txtFiles:
+            printLimit = 5
+            temp = 0
+            with open(directory+'/'+file, 'r') as inFile:
+                hotspots = {}
+                moods = {}
+                texts = {}
+                creds = {}
+                matched = False
+                for line in inFile:
+                    data = json.loads(line)
 
-                    nameText = namereturn(hotspotName)
-                    m1 = data['Mood'][u'친절한']
-                    m2 = data['Mood'][u'답답한']
-                    m3 = data['Mood'][u'로맨틱한']
-                    m4 = data['Mood'][u'편안한']
-                    m5 = data['Mood'][u'북적이는']
-                    m6 = data['Mood'][u'전통적']
-                    m7 = data['Mood'][u'세련된']
-                    mc = data['MoodCredibility']
+                    hotspotName = data['hotspot']
 
-                    matched = True
-                    break
+                    print('==== Example post contents ====')
+                    if hotspotName == pid:
+                        temp+=1
+
+                        print (data['text'])
+
+                        nameText = namereturn(hotspotName)
+                        m1 = data['Mood'][u'친절한']
+                        m2 = data['Mood'][u'답답한']
+                        m3 = data['Mood'][u'로맨틱한']
+                        m4 = data['Mood'][u'편안한']
+                        m5 = data['Mood'][u'북적이는']
+                        m6 = data['Mood'][u'전통적']
+                        m7 = data['Mood'][u'세련된']
+                        mc = data['MoodCredibility']
+
+                        matched = True
+                        if temp > printLimit:
+                            break
 
     if not matched:
         #return {'msg':'No matched place id'}, status.HTTP_404_NOT_FOUND

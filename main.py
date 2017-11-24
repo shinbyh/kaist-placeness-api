@@ -33,6 +33,7 @@ from hotspot_placeness import UserFeedback
 # Cha Meeyoung
 from hotspot_mood import MoodExtraction
 from hotspot_mood import HotspotMoodDistribution
+from hotspot_mood import getHotspotMoodDistribution
 
 # TheQ
 from relevanceExtraction import RelevanceExtraction
@@ -48,7 +49,6 @@ def index():
     client_ip = request.environ['REMOTE_ADDR']
     visitor_logger.post_visit_data('web', client_ip, int(time.time()), '/', 'get')
     return render_template("index.html")
-
 
 @app.route('/eng', methods=['GET'])
 def index_eng():
@@ -82,6 +82,44 @@ def sampleHotspot():
                             hotspot_id=hotspot_id,
                             hotspot_name=hotspot_name,
                             value=value_sorted)
+
+@app.route('/hotspot-mood', methods=['GET'])
+def hotspot_mood():
+    client_ip = request.environ['REMOTE_ADDR']
+    hotspot_id = request.args.get('hotspot_name')
+    mode = request.args.get('mode')
+    threshold = float(request.args.get('threshold'))
+    input_params = '/hotspot_mood?hotspot_id={}'.format(hotspot_id)
+    visitor_logger.post_visit_data('web', client_ip, int(time.time()), input_params, 'get')
+    result = getHotspotMoodDistribution(threshold, mode, hotspot_id)
+    mood = result['Mood']
+    mood_credibility = result['MoodCredibility']
+    hotspot = result['Hotspot']
+    return render_template("hotspot_mood.html", mood=mood, mood_credibility=mood_credibility, hotspot=hotspot, hotspot_id=hotspot_id)
+
+@app.route('/place-mood', methods=['GET'])
+def mood():
+    client_ip = request.environ['REMOTE_ADDR']
+    post = request.args.get('post')
+    input_params = '/mood?post={}'.format(post)
+    visitor_logger.post_visit_data('web', client_ip, int(time.time()), input_params, 'get')
+    return render_template("mood.html", post=post)
+
+@app.route('/relevance-extraction', methods=['GET'])
+def relevanced():
+    client_ip = request.environ['REMOTE_ADDR']
+    args = request.args
+    input_params = '/relevance-extraction?{}'.format(args)
+    visitor_logger.post_visit_data('web', client_ip, int(time.time()), input_params, 'get')
+    return render_template("relevance.html")
+
+@app.route('/activity-trend', methods=['GET'])
+def activity_time_trend():
+    client_ip = request.environ['REMOTE_ADDR']
+    args = request.args
+    input_params = '/activity_time_trend?{}'.format(args)
+    visitor_logger.post_visit_data('web', client_ip, int(time.time()), input_params, 'get')
+    return render_template("activity_time_trend.html")
 
 @app.route('/placeness', methods=['GET'])
 def sampleDistrict():
@@ -261,8 +299,8 @@ api.add_resource(HotspotPlaceness, '/hotspot_placeness_extraction.json')
 api.add_resource(FeatureExtraction, '/feature_extraction.json')
 api.add_resource(UserFeedback, '/user_feedback.json')
 api.add_resource(RelevanceExtraction, '/relevance_extraction.json')
-api.add_resource(MoodExtraction, '/mood')
-api.add_resource(HotspotMoodDistribution, '/hotspot_mood')
+api.add_resource(MoodExtraction, '/mood.json')
+api.add_resource(HotspotMoodDistribution, '/hotspot_mood.json')
 api.add_resource(VisitorActivityData, '/activity_time_trend.json/activity')
 
 def show_usage():

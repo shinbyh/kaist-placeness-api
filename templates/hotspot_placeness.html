@@ -134,7 +134,7 @@
     <br />
 
     <div class="row">
-      <div class="col-sm-6" style="background-color: #e3e3e3; height:650px; margin-top: 0px;">
+      <div class="col-sm-5" style="background-color: #e3e3e3; height:550px; margin-top: 0px;">
         <!--<img src="{{imgfile}}" width="780" />-->
         <iframe width="100%" height="100%" src="{{requested_url}}/embed"></iframe>
         {{post_data.caption}}
@@ -142,41 +142,86 @@
       <div class="col-sm-1" style="text-align: center; margin-top: 15%;">
         <span class="glyphicon glyphicon-arrow-right" style="font-size: 50px;"></span>
       </div>
-      <div class="col-sm-5" style="padding-left: 30px; border:2px solid #e3e3e3;">
+      <div class="col-sm-6" style="padding-left: 30px; border:2px solid #e3e3e3;">
         <div class="row" style="font-size: 24px;">
           Feature Extraction Data
         </div>
-        <div>
+
+        <div class="row">
+          <b>Location: {{proc_data.location.name}} (Location ID: <a href="https://www.instagram.com/explore/locations/{{proc_data.location.id}}">{{proc_data.location.id}}</a>)</b>
+        </div>
+
+        <div class="row">
+          <b>{{proc_data.location.name}}의 세부장소성:</b> <a href="http://placeness.kaist.ac.kr:8001/hotspot?hotspot_id={{proc_data.location.id}}">http://placeness.kaist.ac.kr:8001/hotspot?hotspot_id={{proc_data.location.id}}</a>
+        </div>
+
+        <div class="row">
+            <table id="feature_table" class="table table-bordered">
+              <thead id="t_head">
+                <tr>
+                  <th>Season</th>
+                  <th>Maen</th>
+                  <th>isWeekend</th>
+                  <th>User/With</th>
+                  <th>Occasion</th>
+                  <th>count</th>
+                </tr>
+              </thead>
+              <tbody id="t_body">
+                {% for item in feature_ext_result['placeness'] %}
+                <tr>
+                  <td>
+                    {% if('Season' in item) %}
+                      {{ item['Season'] }}
+                    {% else %}
+                      -
+                    {% endif %}
+                  </td>
+                  <td>
+                    {% if('maen' in item) %}
+                      {{ item['maen'] }}
+                    {% else %}
+                      -
+                    {% endif %}
+                  </td>
+                  <td>
+                    {% if('isWeekend' in item) %}
+                      {{ item['isWeekend'] }}
+                    {% else %}
+                      -
+                    {% endif %}
+                  </td>
+                  <td>
+                    {% if('User' in item) %}
+                      {{ item['User'] }}
+                    {% else %}
+                      -
+                    {% endif %}
+                    {% if('With' in item) %}
+                      {{ item['With'] }}
+                    {% else %}
+                      -
+                    {% endif %}
+                  </td>
+                  <td>
+                    {% if('Occasion' in item) %}
+                      {{ item['Occasion'] }}
+                    {% else %}
+                      -
+                    {% endif %}
+                  </td>
+                  <td>
+                    {{ item['count'] }}
+                  </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="row">
           {{feature_ext_result}}
         </div>
-        <div class="row">
-          <div class="col-sm-3"><b>Location</b></div>
-            <div class="col-sm-9"><b>{{proc_data.location.name}} (Location ID: <a href="https://www.instagram.com/explore/locations/{{proc_data.location.id}}">{{proc_data.location.id}}</a>)</b></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3"><b>Season</b></div>
-          <div class="col-sm-9">{{proc_data.season}}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3"><b>Mood</b></div>
-          <div class="col-sm-9">{{proc_data.mood}}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3"><b>Activity</b></div>
-          <div class="col-sm-9">{{proc_data.activity}}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3"><b>isWeekend</b></div>
-          <div class="col-sm-9">{{proc_data.weekend}}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3"><b>Maen</b></div>
-          <div class="col-sm-9">{{proc_data.maen}}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3"><b>User</b></div>
-          <div class="col-sm-9"></div>
-        </div>
+
       </div>
     </div>
   </div>

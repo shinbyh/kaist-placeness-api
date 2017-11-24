@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>KAIST Placeness API</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="static/util.js"></script>
+  <style>
+  body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+  }
+  #summary {
+	margin : 10px;	  
+  }
+	.relevance_extraction {
+		margin-top: 20px;
+	}
+    .relevance_extraction .form-group div {
+        margin-bottom: 15px;
+    }
+    .tag {
+        border: 1px solid #c9c8c7;
+        border-radius: 18px;
+        color: #999899;
+        font-size: 14px;
+        margin-right: 12px;
+        display: inline-block;
+        height: 36px;
+        line-height: 28px;
+        min-width: 100px;
+        margin-bottom: 16px;
+        text-align: center;
+        padding: 5px 0 10px 0;
+    }
+  </style>
+  <script>
+	$(document).ready(function(){
+		var url = "/relevance_extraction.json?";
+		var params = getParselParameters(['time_kwd', 'with_kwd', 'occasion_kwd', 'mood_kwd', 'weather_kwd', 'weight_date', 'weight_with', 'weight_occasion', 'weight_mood', 'weight_weather', 'topk']);
+		var sum = "";
+		for (var p in params ){
+			url += p+"="+params[p]+"&"; 
+            sum += '<div class="tag">' + params[p]+ '</div>';
+		}
+		$("#summary").html(sum);
+		$.ajax({
+			url: url,
+			success : function(res){
+				var data = res.venues;
+				var col_names = "";
+				var col_vals = "";
+				for(var h in data) {
+					col_vals += "<tr><td>"+h+"</td> <td>"+data[h]+"</td></tr>";
+				}
+				$('#t_body').html(col_vals);
+			}
+		});
+	})
+  </script>
+</head>
+
+<body>
+{% include 'partials/header2.html' %}
+  <div class="container-fluid" style="padding-top: 50px">
+  <div class="center-block" style="width : 60%;">
+	{% include 'partials/relevance.html' %}
+	 <p id="summary"></p>
+	<hr />
+      <table id="hotspot_table" class="table table-bordered">
+        <thead id="t_head">
+          <tr>
+			<th>장소(place)</th>
+			<th>관련성(relevance value)</th>
+          </tr>
+        </thead>
+        <tbody id="t_body">
+        </tbody>
+      </table>
+  </div>	
+  </div>
+</body>
+</html>

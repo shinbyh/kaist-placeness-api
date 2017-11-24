@@ -1,0 +1,92 @@
+<style>
+	.activity_time_trend .form-group div {
+        margin-bottom: 15px;
+    }
+
+</style>
+<script>
+	$(document).ready(function(){
+      $('.activity_time_trend').submit(function(){
+            var start = $('input[name="start"]').val().replace('-','').replace('-','');
+            var end = $('input[name="end"]').val().replace('-','').replace('-','');
+			var time_range =start;
+			if (end !=""){
+				time_range += "-"+end;
+			}
+			$('input[name="time_range"]').val(time_range);
+            $(':input', this).each(function() {
+                this.disabled = !($(this).val());
+            });
+			$('input[name="start"]').attr('disabled', true);
+			$('input[name="end"]').attr('disabled', true);
+      });
+
+	})
+</script>
+
+<form class="activity_time_trend" method="GET" action="activity-trend">
+	  <div class="form-group row">
+		  <div class="col-xs-3">
+			  <select name="category" class="form-control">
+				 <option value="true" selected="selected">(카테고리 정렬 선택)</option>
+				 <option value="true" >True</option>
+				 <option value="false" >False</option>
+			  </select>
+		  </div>
+		  <div class="col-xs-3">
+			  <select name="visitor_age" class="form-control">
+				 <option value="" selected="selected">(나이대 선택)</option>
+				 <option value="10s" >10대</option>
+				 <option value="20s" >20대</option>
+				 <option value="30s" >30대</option>
+				 <option value="40s" >40대</option>
+				 <option value="50s" >50대</option>
+			  </select>
+		  </div>
+		  <div class="col-xs-3">
+			  <select name="visitor_gender" class="form-control">
+				 <option value="" selected="selected">(성별 선택)</option>
+				 <option value="male" >남성</option>
+				 <option value="female" >여성</option>
+			  </select>
+		  </div>
+
+		  <div class="col-xs-3">
+			  <input type="number"  name="limit" class="form-control" min="0" placeholder="제한" required>
+		  </div>
+
+
+		  <div class="col-xs-3" style="text-align: center; margin-top: 5px;">
+			  <span style="color : black;">시간 범위 </span>
+		  </div>
+		  <div class="col-xs-4">
+			  <input name="start" type="date" class="form-control" required>
+		  </div>
+		  <div class="col-xs-1" style="margin-top: 5px;">
+			  ~
+		  </div>
+		  <div class="col-xs-4">
+			  <input name="end" type="date" class="form-control" >
+		  </div>
+
+
+		  <div class="col-xs-3">
+			  <select name="area" class="form-control">
+				 <option value="ipark" selected="selected">(장소 선택)</option>
+				 <option value="coex" >COEX</option>
+				 <option value="ipark" >I'Park</option>
+			  </select>
+		  </div>
+		  <div class="col-xs-3">
+			  <input type="number"  name="lat" step="0.0001" class="form-control" min="0" placeholder="위도">
+		  </div>
+		  <div class="col-xs-3">
+			  <input type="number"  name="lon" step="0.0001" class="form-control" min="0" placeholder="경도">
+		  </div>
+		  <div class="col-xs-3">
+			<input type="hidden"  name="time_range">
+			<button class="btn btn-primary" type="submit">장소성 정보 확인</button>
+		  </div>
+	  </div>
+  </form>
+

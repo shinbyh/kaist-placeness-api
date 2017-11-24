@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>KAIST Placeness API</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+  <script src="static/util.js"></script>
+  <script src="static/graph.js"></script>
+  <style>
+  body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+  }
+  .graph{
+	width	: 100%;
+	height	: 500px;
+	}
+    .tag {
+        border: 1px solid #c9c8c7;
+        border-radius: 18px;
+        color: #999899;
+        font-size: 14px;
+        margin-right: 12px;
+        display: inline-block;
+        height: 36px;
+        line-height: 28px;
+        min-width: 100px;
+        margin-bottom: 16px;
+        text-align: center;
+        padding: 5px 0 10px 0;
+    }
+  </style>
+  <script>
+	$(document).ready(function(){
+		var params = decodeURIComponent(window.location.search.substring(1));
+		var area = getUrlParameter('area');
+		var selected_list = getParselParameters(['visitor_age', 'visitor_gender', 'limit', 'time_range', 'area', 'lan', 'lon']);
+		var sum = "";
+		for (var p in selected_list){
+			sum += '<div class="tag">' + selected_list[p]+ '</div>';
+		}
+		$(".summary").html(sum);
+		$('.title').text(area);
+		$('.time_title').text(area+" work / living / leisure의 시간에 따른 변화");
+		$('.time_work_title').text(area+" work의 시간에 따른 변화");
+		$('.time_living_title').text(area+" living의 시간에 따른 변화");
+		$('.time_leisure_title').text(area+" leisure의 시간에 따른 변화");
+		$.ajax({
+			url : "/activity_time_trend.json/activity?"+params,
+			success : function(res){
+				var place = res[area];
+				var work = place['Work'];
+				var leisure = place['Leisure'];
+				var living = place['Living'];	
+				var work_data = countActivity(work);
+				var leisure_data = countActivity(leisure);
+				var living_data = countActivity(living);
+				chart(work_data, leisure_data, living_data);
+				var work_time_data = count_by_time(work);
+				var living_time_data = count_by_time(living);
+				var leisure_time_data = count_by_time(leisure);
+				var time_data = appendDict(work_time_data, living_time_data, leisure_time_data);
+				time_graph(time_data);
+				time_work_graph(count_activity_by_time(work));
+				time_living_graph(count_activity_by_time(living));
+				time_leisure_graph(count_activity_by_time(leisure));
+			}
+		});
+
+	});
+	function countActivity(data){
+		var activities = {
+			"fashionandbeauty" : 0,
+			"business" : 0,
+			"relaxation" : 0,
+			"education" : 0,
+			"traveling" : 0,
+			"chores" : 0,
+			"housing" : 0,
+			"outdoor" : 0,
+			"dining" : 0,
+			"health" : 0,
+			"social" : 0,
+			"childcare" : 0,
+			"religion" : 0,
+			"legal" : 0,
+			"entertainment" : 0,
+			"artandculture" : 0
+		};
+		for(var p in data){
+			var acts = data[p]['activities'];
+			for (var a in acts){
+				activities[acts[a]] +=1;
+			}
+		}
+		return activities;
+	}
+  </script>
+</head>
+
+<body>
+{% include 'partials/header2.html' %}
+  <div class="container-fluid" style="padding-top: 80px">
+  <div class="center-block" style="width : 80%; ">
+    {% include 'partials/activity_trend.html' %}
+	<h3>summary</h3>
+	<div class="summary" > </div>
+    <hr />
+	<h3 class="title"></h3>
+	<div id="chartdiv"></div>		
+    <hr />
+	<h3 class="time_title"></h3>
+	<div class="graph" id="time_graph"></div>		
+    <hr />
+	<h3 class="time_work_title"></h3>
+	<div class="graph" id="time_work_graph"></div>		
+    <hr />
+	<h3 class="time_living_title"></h3>
+	<div class="graph" id="time_living_graph"></div>		
+    <hr />
+	<h3 class="time_leisure_title"></h3>
+	<div class="graph" id="time_leisure_graph"></div>		
+  </div>
+  </div>
+</body>
+</html>

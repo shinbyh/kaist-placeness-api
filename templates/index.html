@@ -7,6 +7,43 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+  $(document).ready(function(){
+      $("#hotspot-mode").change(function(){
+          if($(this).val() == 'binary'){
+              $("#threshold").attr("readonly",false);
+          } else {
+              $("#threshold").attr("readonly",true);
+          }
+      });
+      $("#mood-mode").change(function(){
+          if($(this).val() == 'binary'){
+              $("#mood-threshold").attr("readonly",false);
+          } else {
+              $("#mood-threshold").attr("readonly",true);
+          }
+      });
+      $('.hotspot-mood').submit(function(){
+          if($('#hotspot_name').val()==""){
+              $('#hotspot_name').val(284660200);
+          }
+          if($('#threshold').val()==""){
+              $('#threshold').val(0.2);
+          }
+      });
+      $('.mood').submit(function(){
+          if($('#mood-threshold').val()==""){
+              $('#mood-threshold').val(0.2);
+          }
+      });
+	  $('#hotspot_search_form').submit(function(){
+		  if($('#hotspot_id').val() == ""){
+              $('#hotspot_id').val(309128);
+		  }
+	  });
+  });
+
+  </script>
 	<style>
     body {
         font: 400 15px Lato, sans-serif;
@@ -57,53 +94,13 @@
         height: 100%;
         margin-bottom: 10px;
     }
-    .navbar {
-        margin-bottom: 0;
-        background-color: #0174DF;
-        z-index: 9999;
-        border: 0;
-        font-size: 12px !important;
-        line-height: 1.42857143 !important;
-        letter-spacing: 4px;
-        border-radius: 0;
-        font-family: Montserrat, sans-serif;
-    }
-    .navbar li a, .navbar .navbar-brand {
-        color: #fff !important;
-    }
-    .navbar-nav li a:hover, .navbar-nav li.active a {
-        color: #0174DF !important;
-        background-color: #fff !important;
-    }
-    .navbar-default .navbar-toggle {
-        border-color: transparent;
-        color: #fff !important;
+	.relevance_extraction .form-group div {
+        margin-bottom: 15px;
     }
 	</style>
 </head>
 <body>
-
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Home</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/eng">ENGLISH</a></li>
-        <li><a href="#placeness">PLACENESS</a></li>
-        <li><a href="#api">API</a></li>
-        <li><a href="#example">SAMPLE APP</a></li>
-        <li><a href="#contact">CONTACT</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+{% include 'partials/header.html' %}
 
 <div class="jumbotron text-center">
   <h1>KAIST 장소성 마이닝/추론 API</h1>
@@ -133,6 +130,7 @@
 
   <div class="row">
     <div class="center-block" style="width:60%;">
+        <label  >세부장소 추론</label>
       <form id="hotspot_search_form" action="hotspot">
         <div class="input-group">
           <input id="hotspot_id" name="hotspot_id" class="form-control" size="50" placeholder="인스타그램 location ID (예: 309128)" form="hotspot_search_form" >
@@ -141,8 +139,8 @@
           </div>
         </div>
       </form>
-
-      <br />
+	<hr />
+      <label  >상위장소 추론</label>
       <form id="placeness_search_form" action="district-placeness">
         <div class="form-group row">
             <div class="col-xs-2">
@@ -192,6 +190,57 @@
             </div>
         </div>
       </form>
+	<hr />
+       <label  >세부장소 분위기 추론</label>
+	  <form class="hotspot-mood" method="GET" action="hotspot-mood">
+        <div class="form-group row">
+            <div class="col-xs-4">
+              <input id="hotspot_name" name="hotspot_name" class="form-control" size="50" placeholder="인스타그램 location ID (예: 309128)" >
+            </div>
+            <div class="col-xs-3">
+                <select id="hotspot-mode" name="mode" class="form-control">
+                  <option value="none" selected="selected">(모드 선택)</option>
+                  <option value="multi-score" >multi-score</option>
+                  <option value="binary">binary</option>
+                </select>
+            </div>
+            <div class="col-xs-3">
+                <input type="number" id="threshold" name="threshold" step="0.01" class="form-control" min="0" max="1" readonly placeholder="threshold">
+            </div>
+            <div class="col-xs-1">
+              <button class="btn btn-primary" type="submit">장소성 정보 확인</button>
+            </div>
+        </div>
+      </form>
+	<hr />
+	<label  >포스트 별 세부장소 분위기 추론</label>
+      <form class="mood" method="GET" action="place-mood">
+        <div class="form-group row">
+            <div class="col-xs-4">
+              <input id="post" name="post" class="form-control" size="50" placeholder="분위기를 추출하고자 하는 포스트의 내용" required>
+            </div>
+            <div class="col-xs-3">
+                <select id="mood-mode" name="mode" class="form-control">
+                  <option value="multi-score" selected="selected">(모드 선택)</option>
+                  <option value="multi-score" >multi-score</option>
+                  <option value="binary">binary</option>
+                </select>
+            </div>
+            <div class="col-xs-3">
+                <input type="number" id="mood-threshold" name="threshold" step="0.01" class="form-control" min="0" max="1" readonly placeholder="threshold">
+            </div>
+            <div class="col-xs-1">
+              <button class="btn btn-primary" type="submit">장소성 정보 확인</button>
+            </div>
+        </div>
+      </form>
+	<hr />
+     <label  >연관도 추론</label>
+		{% include 'partials/relevance.html' %}
+
+	<hr />
+     <label  >시간에 따른 트렌드 변화</label>
+		{% include 'partials/activity_trend.html' %}
     </div>
   </div>
 </div>
@@ -244,19 +293,6 @@
   </div>
 </div>
 
-<div id="contact" class="container-fluid bg-grey">
-  <h2 class="text-center">CONTACT</h2>
-  <div class="row">
-    <div class="col-sm-8">
-      <p>KAIST 전산학부 협동분산네트워크시스템 연구실 (<a href="http://cds.kaist.ac.kr">연구실 홈페이지로 이동</a>)</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span>대전시 유성구 대학로 291 한국과학기술원(KAIST), IT융합센터(N1) 823호</p>
-      <p><span class="glyphicon glyphicon-phone"></span>(042) 350-7759</p>
-      <p><span class="glyphicon glyphicon-envelope"></span>bhshin .AT. kaist.ac.kr</p>
-    </div>
-
-  </div>
-</div>
-
-
+{% include 'partials/footer.html' %}
 </body>
 </html>

@@ -16,6 +16,8 @@ def parsePost(url_sns):
     find_start = "\"location\": {\"id\":"
     find_end = ", \"viewer_has_liked\""
 
+    print('###############', url_sns)
+
     try:
         #html = urllib.urlopen(url).read()
         with urlopen(url_sns) as url:
